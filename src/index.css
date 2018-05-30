@@ -3,3 +3,34 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+.imageCard {
+  display: flex;
+  align-items: center;
+  box-shadow: 2px 1.5px #999999;
+  border: solid #999999 1px;
+  width: 700px;
+  height: 230px;
+  margin: 50px;
+}
+
+.leftAligned {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 75px;
+}
+
+.rightAligned {
+  margin-left: 75px;
+}
+
+.scaledImage {
+  width: auto;
+  height: 170px;
+  margin-bottom: 30px;
+}
+
+.imageTitle {
+  margin-bottom: 2px;
+}
