@@ -15,18 +15,21 @@ const imageSource = {
     },
 
     //Component is Image that was just dropped 
+
+    // FIRE A FLUX ACTION HERE, tell Image to rerender?
     endDrag(props, monitor, component){
         const newImage = monitor.getDropResult();
         if (newImage){
+            console.log("drag Ended: ");
             console.log(newImage);
             component.setState({
                 imageLink: newImage.imageLink,
                 x: newImage.x,
                 y: newImage.y
             })
-            return newImage;
+
         }
-        return null; 
+   
     }
 }
 
@@ -55,16 +58,19 @@ class Image extends Component {
     }
 
     render(){
-        const { connectDragSource, isDragging, imageLink, newImage } = this.props; 
-        return connectDragSource( 
+        const { connectDragSource, isDragging, imageLink, x, y } = this.props; 
+        
+        if (isDragging){
+            return null;
+        }
+        
+        return connectDragSource && connectDragSource( 
             <div style={{
                 opacity: isDragging ? 0.5 : 1, 
                 outlineColor: "#000000",
                 outlineWidth: "10", 
-                position: "relative",
-                left: this.state.x,
-                top: this.state.y,
 
+                cursor: "move"
             }}> 
                 <img src={imageLink}
                     alt="Image"

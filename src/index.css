@@ -81,16 +81,18 @@ p {
   flex-direction: row; 
   flex-wrap: wrap;
   justify-content: space-evenly;
-  align-items: "flex-start";
-  width: 500px; 
+  width: 800px; 
   height: 500px;
   background-color: #F7F7F7;
 }
 
 .canvasContainer {
   display: flex;
-  background-color: #F7F7F7;
-  width: 500px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  background-color: #F3F3F3;
+  width: 800px;
   height: 500px;
 
 }
