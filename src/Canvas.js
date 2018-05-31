@@ -23,6 +23,9 @@ const target = {
             y: coords.y
         }
       component.addImage(newImage);
+
+      const { callbackForImage } = props;
+      callbackForImage(newImage);
     },
 
     //Change style of Canvas in response

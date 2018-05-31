@@ -101,12 +101,28 @@ const infoCards = [card1, card2, card3, card4, card5, card6, card7, card8, card9
 class App extends Component {
   constructor(){
     super()
-    this.state = {presentClicked: false}
+    this.state = {
+      presentClicked: false,
+      imageLinks: []
+    }
   }
-  presentClicked = () => {
-    this.setState({presentClicked: true});
+  
+  // ONLY ACTIVATE WHEN PRESENT IS ACTUALLY CLICKED 
+  presentClicked = (newImage) => {
+    console.log("PRESENT CLICKED");
+    this.setState({presentClicked: true, imageLinks: this.state.imageLinks});
+    console.log(this.state);
   }
 
+  callbackForImage = (newImage) => {
+    console.log("callbakc for image");
+    console.log(newImage);
+    const imageLinks = this.state.imageLinks.concat([newImage.imageLink]);
+    console.log(imageLinks);
+
+    this.setState({imageLinks: imageLinks, presentClicked: false});
+    console.log(this.state);
+  }
 
   render() {
     return (
@@ -211,7 +227,9 @@ class App extends Component {
 
 
         {/* PROTOTYPE SECTION BEGINS HERE */}=
-        <Canvas /> 
+        <Canvas 
+          callbackForImage={this.callbackForImage}
+        /> 
 
         {/* Images SECTION BEGINS HERE */}
         <div className="picturesContainer" >
@@ -254,11 +272,15 @@ class App extends Component {
             Let’s dive into your image selections.
           </p>
           {infoCards.map((card) => {
-            return (
-              <InfoCard
-              {...card}
-            />
-            )
+            console.log(this.state.imageLinks);
+            console.log(card.imageLink);
+            if (this.state.imageLinks.includes(card.imageLink)){
+              return (
+                <InfoCard
+                {...card}
+              />
+              )
+            }
           })}
         </div>
         }
