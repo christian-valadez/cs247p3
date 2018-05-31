@@ -99,6 +99,15 @@ const infoCards = [card1, card2, card3, card4, card5, card6, card7, card8, card9
 
 
 class App extends Component {
+  constructor(){
+    super()
+    this.state = {presentClicked: false}
+  }
+  presentClicked = () => {
+    this.setState({presentClicked: true});
+  }
+
+
   render() {
     return (
       <div className="pageContainer"> 
@@ -218,8 +227,15 @@ class App extends Component {
           })}
         </div> 
 
+        <button style={{alignSelf: "center"}} 
+            onClick={this.presentClicked}>
+             Present
+        </button> 
+
         {/* CARDS SECTION BEGINS HERE */}
-        <div className="cardsContainer">
+
+        {this.state.presentClicked && 
+          <div className="cardsContainer">
           <a name="debrief">
             <h1 className="sectionTitle">Debrief</h1>
           </a>
@@ -245,6 +261,8 @@ class App extends Component {
             )
           })}
         </div>
+        }
+
 
       </div>
     );
