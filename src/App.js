@@ -3,6 +3,12 @@ import logo from './logo.svg';
 import './App.css';
 
 import InfoCard from './InfoCard.js';
+import Image from './Image.js';
+import Canvas from './Canvas.js'
+
+import { DragDropContext } from 'react-dnd';
+import HTML5Backend from 'react-dnd-html5-backend';
+
 
 const sampleInfoCard = {
   title: "Card Title", 
@@ -13,10 +19,10 @@ const sampleInfoCard = {
 
 const infoCards = [sampleInfoCard];
 
+
 class App extends Component {
   render() {
     return (
-
       <div>
         <div className="App">
           <header className="App-header">
@@ -28,6 +34,33 @@ class App extends Component {
           </p>
         </div>
 
+        {/* PROTOTYPE SECTION BEGINS HERE */}
+        <Canvas /> 
+
+        {/* Images SECTION BEGINS HERE */}
+        <div className="picturesContainer" >
+
+          {infoCards.map((card) =>{
+            const {imageLink} = card; 
+
+            //TODO: Calculate offset, pass it in as defaultX / Y
+            return (
+              <div style={{
+                backgroundColor: "#F3F3F3",
+                color: "black",
+                width: "500px",
+                height: "500px",
+              }} >
+                Images section goes here
+                <Image imageLink={imageLink}
+                  defaultX={0}
+                  defaultY={0}
+                />
+              </div> 
+            )
+          })}
+
+        </div>
         {/* CARDS SECTION BEGINS HERE */}
         <div> 
           {infoCards.map((card) => {
@@ -44,4 +77,10 @@ class App extends Component {
   }
 }
 
-export default App;
+export const ItemTypes = {
+  IMAGE: 'image'
+};
+
+
+
+export default DragDropContext(HTML5Backend)(App);
