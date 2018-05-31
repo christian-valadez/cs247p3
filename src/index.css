@@ -4,6 +4,27 @@ body {
   font-family: sans-serif;
 }
 
+.sectionTitle {
+  margin-top: 70px;
+  margin-bottom: 20px;
+}
+
+.introTextContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.figure {
+  margin-bottom: 20px;
+}
+
+.introText {
+  font-size: 18px;
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
 .cardsContainer {
   display: flex;
   flex-direction: column;
@@ -16,7 +37,7 @@ body {
   box-shadow: 2px 1.5px #999999;
   border: solid #999999 1px;
   width: 700px;
-  height: 500px;
+  height: 600px;
   margin: 50px;
 }
 
