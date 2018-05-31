@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 import { DragSource } from 'react-dnd';
 
+import './App.css';
+
 const imageSource = { 
     // Returns an object to monitor.getItem()
     beginDrag(props) {

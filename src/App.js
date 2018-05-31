@@ -59,44 +59,27 @@ const infoCards = [card1, card2, card3, card4, card5];
 class App extends Component {
   render() {
     return (
-      <div>
-        <div className="App">
-          <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <h1 className="App-title">Welcome to React</h1>
-          </header>
-          <p className="App-intro">
-            To get started, edit <code>src/App.js</code> and save to reload.
-          </p>
-        </div>
+      <div className="pageContainer"> 
 
         {/* PROTOTYPE SECTION BEGINS HERE */}
-        <Canvas /> 
+
+          <Canvas /> 
+
 
         {/* Images SECTION BEGINS HERE */}
         <div className="picturesContainer" >
-
           {infoCards.map((card) =>{
             const {imageLink} = card; 
-
             //TODO: Calculate offset, pass it in as defaultX / Y
             return (
-              <div style={{
-                backgroundColor: "#F3F3F3",
-                color: "black",
-                width: "500px",
-                height: "500px",
-              }} >
-                Images section goes here
                 <Image imageLink={imageLink}
                   defaultX={0}
                   defaultY={0}
                 />
-              </div> 
             )
           })}
-
         </div>
+
         {/* CARDS SECTION BEGINS HERE */}
         <div className="cardsContainer">
           {infoCards.map((card) => {
@@ -116,7 +99,5 @@ class App extends Component {
 export const ItemTypes = {
   IMAGE: 'image'
 };
-
-
 
 export default DragDropContext(HTML5Backend)(App);

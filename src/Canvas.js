@@ -22,10 +22,8 @@ const target = {
           y: coords.y
       }
     },
-
     //Change style of Canvas in response
     hover(props, monitor, component){
-
     }
   };
 
@@ -79,19 +77,13 @@ class Canvas extends React.Component {
        
 
         return connectDropTarget(
-            <div style={{
-                backgroundColor: "#F7F7F7",
-                color: "black",
-                width: "500px",
-                height: "500px",
-                position: 'relative'
-              }} >
+        <div className="canvasContainer"> 
+            Canvas container here
                 {this.state.listOfImages.map((image) => {
                     <Image imageLink={newImage.imageLink}
                         x={0}
                         y={0} />
                 })}
-                Prototype section goes here
             </div> 
         )
     }
