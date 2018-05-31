@@ -14,11 +14,13 @@ const imageSource = {
         };
     },
 
+    //Component is Image that was just dropped 
     endDrag(props, monitor, component){
         const newImage = monitor.getDropResult();
         if (newImage){
             console.log(newImage);
             component.setState({
+                imageLink: newImage.imageLink,
                 x: newImage.x,
                 y: newImage.y
             })
@@ -46,9 +48,9 @@ class Image extends Component {
     constructor(props){
         super(props)
         // Default props, defaultX, defaultY 
-        const { x, y } = props;
+        const { x, y, imageLink } = props;
         this.state = {
-            x, y
+            x, y, imageLink
         };
     }
 
@@ -59,13 +61,17 @@ class Image extends Component {
                 opacity: isDragging ? 0.5 : 1, 
                 outlineColor: "#000000",
                 outlineWidth: "10", 
-                position: "absolute",
+                position: "relative",
                 left: this.state.x,
-                top: this.state.y
+                top: this.state.y,
+
             }}> 
                 <img src={imageLink}
                     alt="Image"
-                    className="scaledImage"/>
+                    className="scaledImage"
+                    width="100px"
+                    heigth="100px"
+                    />
             </div> 
         )
     }
