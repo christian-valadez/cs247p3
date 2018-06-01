@@ -15,21 +15,15 @@ const imageSource = {
     },
 
     //Component is Image that was just dropped 
-
-    // FIRE A FLUX ACTION HERE, tell Image to rerender?
     endDrag(props, monitor, component){
         const newImage = monitor.getDropResult();
         if (newImage){
-            console.log("drag Ended: ");
-            console.log(newImage);
             component.setState({
                 imageLink: newImage.imageLink,
                 x: newImage.x,
                 y: newImage.y
             })
-
         }
-   
     }
 }
 
@@ -41,11 +35,7 @@ function collect (connect, monitor){
     }
 }
 
-//monitor.getItem() -> retrieves the item returned by beginDrag
 
-// Change the item position, and rerender. 
-
-// Just change the items' state, which will change the style  
 
 class Image extends Component { 
     constructor(props){
