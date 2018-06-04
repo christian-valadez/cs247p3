@@ -61,7 +61,10 @@ class Image extends Component {
                 outlineColor: "#000000",
                 outlineWidth: "10", 
                 cursor: "move", 
-                position: 'absolute',
+                width: "50px",
+                height: "50px",
+                margin: "50px",
+                position: 'relative',
             }}> 
                 <img src={imageLink}
                     />

@@ -5,7 +5,6 @@ import { DropTarget } from 'react-dnd';
 import Image from './Image';
 
 const target = {
-
     drop(props, monitor, component) {
       const coords = monitor.getSourceClientOffset();
       const item = monitor.getItem(); 
@@ -15,13 +14,13 @@ const target = {
             y: coords.y
         }
       component.addImage(newImage);
-      props.callbackForImage(newImage);
+      props.addImageToCanvas(newImage);
     },
 
     //Change style of Canvas when hovering over it 
     hover(props, monitor, component){
-
     }
+
   };
 
 function collect(connect, monitor) {

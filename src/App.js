@@ -17,11 +17,14 @@ import Canvas from './Canvas.js'
 
 import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
+import update from 'immutability-helper';
 
 class App extends Component {
   constructor(){
     super()
     this.state = {
+      canvasImages: [], 
+      bankImages: [], 
       presentClicked: false,
       imageLinks: []
     }
@@ -31,9 +34,14 @@ class App extends Component {
     this.setState({presentClicked: true, imageLinks: this.state.imageLinks});
   }
 
-  callbackForImage = (newImage) => {
+
+  addImageToCanvas = (image) => {
     const imageLinks = this.state.imageLinks.concat([newImage.imageLink]);
     this.setState({imageLinks: imageLinks, presentClicked: false});
+  }
+
+  removeImageFromBank = (image) => {
+
   }
 
   render() {
@@ -137,9 +145,9 @@ class App extends Component {
           </p>
         </div>
 
-        {/* PROTOTYPE SECTION BEGINS HERE */}=
+        {/* CANVAS SECTION BEGINS HERE */}=
         <Canvas 
-          callbackForImage={this.callbackForImage}
+          addImageToCanvas={this.addImageToCanvas}
         /> 
 
         {/* Images SECTION BEGINS HERE */}
@@ -157,11 +165,11 @@ class App extends Component {
           })}
         </div> 
 
+
         <button style={{alignSelf: "center"}} 
             onClick={this.presentClicked}>
              Present
         </button> 
-
         {/* CARDS SECTION BEGINS HERE */}
         {this.state.presentClicked && 
           <div className="cardsContainer">
