@@ -51,12 +51,28 @@ class Canvas extends React.Component {
 
         return connectDropTarget(
             <div className="canvasContainer"> 
-                Canvas container here
+                {isOver && 
+                        <div style={{
+                            position: 'absolute',
+                            top: 0,
+                            left: 0,
+                            right: 0, 
+                            bottom: 0,
+                            height: '100%',
+                            width: '100%',
+                            opacity: 0.5,
+                            backgroundColor: 'yellow'
+                        }} />
+                }
                 {this.state.listOfImages.map((image) => {
-                        return(
+                        return (
+                        <div> 
+
                         <Image imageLink={image.imageLink}
                             x={0}
                             y={0} />
+                        
+                        </div>
                         )
                 })}
             </div> 

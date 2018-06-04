@@ -27,7 +27,6 @@ class App extends Component {
     }
   }
   
-  // ONLY ACTIVATE WHEN PRESENT IS ACTUALLY CLICKED 
   presentClicked = (newImage) => {
     this.setState({presentClicked: true, imageLinks: this.state.imageLinks});
   }
