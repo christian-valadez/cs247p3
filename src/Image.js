@@ -53,20 +53,17 @@ class Image extends Component {
         if (isDragging){
             return null;
         }
+        console.log(imageLink);
         
         return connectDragSource && connectDragSource( 
             <div style={{
                 opacity: isDragging ? 0.5 : 1, 
                 outlineColor: "#000000",
                 outlineWidth: "10", 
-
-                cursor: "move"
+                cursor: "move", 
+                position: 'absolute',
             }}> 
                 <img src={imageLink}
-                    alt="Image"
-                    className="scaledImage"
-                    width="100px"
-                    heigth="100px"
                     />
             </div> 
         )

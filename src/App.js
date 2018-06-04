@@ -144,13 +144,14 @@ class App extends Component {
 
         {/* Images SECTION BEGINS HERE */}
         <div className="picturesContainer" >
-          {infoCards.map((card) =>{
+          {infoCards.map((card, index) =>{
             const {imageLink} = card; 
             //TODO: Calculate offset, pass it in as defaultX / Y
             return (
                 <Image imageLink={imageLink}
                   defaultX={0}
                   defaultY={0}
+                  key={index}
                 />
             )
           })}
@@ -189,6 +190,7 @@ class App extends Component {
               />
               )
             }
+            return null;
           })}
         </div>
         }

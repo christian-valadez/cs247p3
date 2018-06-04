@@ -66,8 +66,10 @@ class Canvas extends React.Component {
                 }
                 {this.state.listOfImages.map((image) => {
                         return (
-                        <div> 
-
+                        <div style={{
+                            position: 'relative',
+                            border: '1px solid black'
+                        }}> 
                         <Image imageLink={image.imageLink}
                             x={0}
                             y={0} />
