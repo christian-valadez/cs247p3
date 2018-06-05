@@ -65,9 +65,10 @@ class Canvas extends React.Component {
                             backgroundColor: 'yellow'
                         }} />
                 }
-                {this.state.listOfImages.map((image) => {
+                {this.state.listOfImages.map((image, i) => {
                         return (
-                        <div style={{
+                        <div key={i}
+                        style={{
                             position: 'relative',
                             border: '1px solid black'
                         }}> 

@@ -21,12 +21,16 @@ import update from 'immutability-helper';
 
 class App extends Component {
   constructor(){
-    super()
+    super();
+
+    const bankImages = infoCards.map(item => {
+      return item.imageLink; 
+    })
 
     //Default state for bank is the entire collection of cards
     this.state = {
       canvasImages: [], 
-      bankImages: infoCards, 
+      bankImages: bankImages, 
       presentClicked: false,
     }
   }
@@ -38,9 +42,27 @@ class App extends Component {
 
   // Add to Canvas, and remove from Bank 
   addImageToCanvas = (imageLink) => {
+    console.log("addingImageToCanvas");
+    console.log(imageLink);
+
     const newBankImages = this.state.bankImages.map((item) => {
-      if (imageLink !== item.imageLink){
-        return item.imageLink; 
+      if (imageLink !== item){
+        return item; 
+      }
+    })
+    const newCanvasImages = this.state.canvasImages.concat([imageLink]);
+    this.setState({bankImages: newBankImages, 
+      canvasImages: newCanvasImages, 
+      presentClicked: false}
+    );
+    console.log(this.state);
+  }
+
+  // Remove from Canvas, add to Bank 
+  removeImageFromCanvas = (imageLink) => {
+    const newBankImages = this.state.bankImages.map((item) => {
+      if (imageLink != item){
+        return item; 
       }
     })
     const newCanvasImages = this.state.canvasImages.concat([imageLink]);
@@ -50,18 +72,22 @@ class App extends Component {
     );
   }
 
-  // Remove from Canvas, add to Bank 
-  removeImageFromCanvas = (imageLink) => {
-    const newBankImages = this.state.bankImages.map((item) => {
-      if (imageLink != item.imageLink){
-        return item.imageLink; 
-      }
+  renderImageBank() {
+    const _this = this; 
+    const images = this.state.bankImages.map((imageLink, index) =>{
+      console.log(imageLink);
+      //TODO: Calculate offset, pass it in as defaultX / Y
+      return (
+          <Image imageLink={imageLink}
+            defaultX={0}
+            defaultY={0}
+            key={index}
+            addImageToCanvas={_this.addImageToCanvas}
+            removeImageFromCanvas={_this.removeImageFromCanvas}
+          />
+      )
     })
-    const newCanvasImages = this.state.canvasImages.concat([imageLink]);
-    this.setState({bankImages: newBankImages, 
-      canvasImages: newCanvasImages, 
-      ...this.state}
-    );
+    return images; 
   }
 
   render() {
@@ -174,19 +200,7 @@ class App extends Component {
 
         {/* IMAGE BANK SECTION BEGINS HERE */}
         <div className="picturesContainer" >
-          {this.state.bankImages.map((card, index) =>{
-            const {imageLink} = card; 
-            //TODO: Calculate offset, pass it in as defaultX / Y
-            return (
-                <Image imageLink={imageLink}
-                  defaultX={0}
-                  defaultY={0}
-                  key={index}
-                  addImageToCanvas={this.addImageToCanvas}
-                  removeImageFromCanvas={this.removeImageFromCanvas}
-                />
-            )
-          })}
+          {this.renderImageBank()}
         </div> 
 
 

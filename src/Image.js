@@ -7,7 +7,8 @@ import './App.css';
 
 const imageSource = { 
     // Returns an object to monitor.getItem()
-    beginDrag(props) {
+    beginDrag(props, monitor, component) {
+        console.log(`starting to drag:${props.imageLink}`); 
         return {
             //Identifier for image
             imageLink: props.imageLink 
@@ -18,25 +19,23 @@ const imageSource = {
     endDrag(props, monitor, component){
         const newImage = monitor.getDropResult();
         const didDrop = monitor.didDrop(); 
+        const imageLink = component.state.imageLink; 
 
-        console.log(`Did drop:${didDrop}`);
+        console.log(`Did drop:${component.state.imageLink}`);
+        console.log(imageLink);
         const {addImageToCanvas, removeImageFromCanvas } = props; 
         // Dropped inside of Canvas 
-        if (newImage){
+        if (imageLink){
             console.log('dropped inside of canvas');
-            console.log(newImage);
-            component.setState({
-                imageLink: newImage.imageLink,
-                x: newImage.x,
-                y: newImage.y
-            })
-            //addImageToCanvas(newImage.imageLink);
+            console.log(imageLink);
+            addImageToCanvas(imageLink);
         }
         //Dropped outside of Canvas 
         // We don't know which one was dropped. 
         else { 
             console.log('dropped outside of canvas');
-            //removeImageFromCanvas(newImage.imageLink);
+            console.log(imageLink);
+            removeImageFromCanvas(imageLink);
         }
         
     }
@@ -67,7 +66,6 @@ class Image extends Component {
         if (isDragging){
             return null;
         }
-        console.log(imageLink);
         
         return connectDragSource && connectDragSource( 
             <div style={{
