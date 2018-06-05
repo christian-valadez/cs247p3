@@ -21,10 +21,6 @@ const imageSource = {
         const didDrop = monitor.didDrop(); 
         const imageLink = component.state.imageLink; 
 
-        console.log(`Did drop:${component.state.imageLink}`);
-        console.log(imageLink);
-        const {addImageToCanvas, removeImageFromCanvas } = props; 
-
         console.log(typeof(addImageToCanvas));
         // Dropped inside of Canvas 
         if (didDrop){

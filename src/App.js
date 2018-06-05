@@ -96,7 +96,7 @@ class App extends Component {
           <Image imageLink={imageLink}
             defaultX={0}
             defaultY={0}
-            key={index}
+            key={imageLink}
             addImageToCanvas={_this.addImageToCanvas}
             removeImageFromCanvas={_this.removeImageFromCanvas}
           />

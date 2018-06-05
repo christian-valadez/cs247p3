@@ -15,12 +15,7 @@ const target = {
             x: coords.x,
             y: coords.y
         }
-      //component.addImage(newImage);
     },
-
-    //Change style of Canvas when hovering over it 
-    hover(props, monitor, component){
-    }
 
   };
 
@@ -38,20 +33,8 @@ function collect(connect, monitor) {
 
 
 class Canvas extends React.Component { 
-    constructor(){
-        super();
-        this.state = {
-            listOfImages: []
-        }
-    }
-
-    renderCanvasImages() {
-        
-    }
-
     render(){
         const { connectDropTarget, isOver, item, dropResult, coords, didDrop, newImage } = this.props; 
-        const { listOfImages } = this.state;
 
         return connectDropTarget(
             <div className="canvasContainer"> 
@@ -71,10 +54,11 @@ class Canvas extends React.Component {
                 }
                 {this.props.canvasImages.map((image, i) => {
                         return (
-                        <div key={i}
+                        <div
                         style={{
                         }}> 
                         <Image imageLink={image}
+                            key={image}
                             addImageToCanvas={this.props.addImageToCanvas}
                             removeImageFromCanvas={this.props.removeImageFromCanvas}
                           />
@@ -85,9 +69,6 @@ class Canvas extends React.Component {
                 })}
             </div> 
         )
-    }
-    addImage(newImage){
-        this.setState({listOfImages: this.state.listOfImages.concat([newImage])});
     }
 }
 
