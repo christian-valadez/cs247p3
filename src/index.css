@@ -87,17 +87,13 @@ p {
 }
 
 .canvasContainer {
-  width: 800px;
-  height: 500px;
-
-  position: relative;
   display: flex;
-  flex-direction: row;
+  flex-direction: row; 
   flex-wrap: wrap;
-  justify-content: space-around;
-  background-color: #F3F3F3;
-
-
+  justify-content: center;
+  background-color: #F7F7F7;
+  width: 800px; 
+  height: 800px;
 }
 
 .cardsContainer {

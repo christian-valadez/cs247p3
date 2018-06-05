@@ -15,8 +15,7 @@ const target = {
             x: coords.x,
             y: coords.y
         }
-      component.addImage(newImage);
-      props.addImageToCanvas(newImage);
+      //component.addImage(newImage);
     },
 
     //Change style of Canvas when hovering over it 
@@ -46,12 +45,17 @@ class Canvas extends React.Component {
         }
     }
 
+    renderCanvasImages() {
+        
+    }
+
     render(){
         const { connectDropTarget, isOver, item, dropResult, coords, didDrop, newImage } = this.props; 
         const { listOfImages } = this.state;
 
         return connectDropTarget(
             <div className="canvasContainer"> 
+                {/* YELLOW OVERLAY */}
                 {isOver && 
                         <div style={{
                             position: 'absolute',
@@ -65,16 +69,16 @@ class Canvas extends React.Component {
                             backgroundColor: 'yellow'
                         }} />
                 }
-                {this.state.listOfImages.map((image, i) => {
+                {this.props.canvasImages.map((image, i) => {
                         return (
                         <div key={i}
                         style={{
-                            position: 'relative',
-                            border: '1px solid black'
                         }}> 
-                        <Image imageLink={image.imageLink}
-                            x={0}
-                            y={0} />
+                        <Image imageLink={image}
+                            addImageToCanvas={this.props.addImageToCanvas}
+                            removeImageFromCanvas={this.props.removeImageFromCanvas}
+                          />
+                            />
                         
                         </div>
                         )

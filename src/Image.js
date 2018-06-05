@@ -24,18 +24,20 @@ const imageSource = {
         console.log(`Did drop:${component.state.imageLink}`);
         console.log(imageLink);
         const {addImageToCanvas, removeImageFromCanvas } = props; 
+
+        console.log(typeof(addImageToCanvas));
         // Dropped inside of Canvas 
-        if (imageLink){
+        if (didDrop){
             console.log('dropped inside of canvas');
             console.log(imageLink);
-            addImageToCanvas(imageLink);
+            props.addImageToCanvas(imageLink);
         }
-        //Dropped outside of Canvas 
+        // Dropped outside of Canvas 
         // We don't know which one was dropped. 
         else { 
             console.log('dropped outside of canvas');
             console.log(imageLink);
-            removeImageFromCanvas(imageLink);
+            props.removeImageFromCanvas(imageLink);
         }
         
     }

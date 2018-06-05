@@ -19,6 +19,8 @@ import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 import update from 'immutability-helper';
 
+import _ from 'lodash';
+
 class App extends Component {
   constructor(){
     super();
@@ -45,12 +47,17 @@ class App extends Component {
     console.log("addingImageToCanvas");
     console.log(imageLink);
 
-    const newBankImages = this.state.bankImages.map((item) => {
+    const newBankImages = [];
+    this.state.bankImages.map((item) => {
       if (imageLink !== item){
-        return item; 
+        newBankImages.push(item); 
       }
     })
+    console.log(newBankImages);
+
+//    const newBankImages = _.remove(this.state.bankImages);
     const newCanvasImages = this.state.canvasImages.concat([imageLink]);
+    
     this.setState({bankImages: newBankImages, 
       canvasImages: newCanvasImages, 
       presentClicked: false}
@@ -60,16 +67,24 @@ class App extends Component {
 
   // Remove from Canvas, add to Bank 
   removeImageFromCanvas = (imageLink) => {
-    const newBankImages = this.state.bankImages.map((item) => {
+    console.log("removeImageFromCanvas");
+    console.log(imageLink);
+
+   
+    const newCanvasImages = [];
+    this.state.canvasImages.map((item) => {
       if (imageLink != item){
-        return item; 
+        newCanvasImages.push(item);
       }
     })
-    const newCanvasImages = this.state.canvasImages.concat([imageLink]);
+    console.log(newCanvasImages);
+
+    const newBankImages = this.state.bankImages.concat([imageLink]);
     this.setState({bankImages: newBankImages, 
       canvasImages: newCanvasImages, 
-      ...this.state}
+      presentClicked: false}
     );
+    console.log(this.state);
   }
 
   renderImageBank() {
@@ -193,7 +208,7 @@ class App extends Component {
 
         {/* CANVAS SECTION BEGINS HERE */}=
         <Canvas 
-          canvsImages={this.state.canvasImages}
+          canvasImages={this.state.canvasImages}
           addImageToCanvas={this.addImageToCanvas}
           removeImageFromCanvas={this.removeImageFromCanvas}
         /> 
