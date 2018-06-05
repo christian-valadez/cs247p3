@@ -22,11 +22,12 @@ import update from 'immutability-helper';
 class App extends Component {
   constructor(){
     super()
+
+    //Default state for bank is the entire collection of cards
     this.state = {
       canvasImages: [], 
-      bankImages: [], 
+      bankImages: infoCards, 
       presentClicked: false,
-      imageLinks: []
     }
   }
   
@@ -35,13 +36,32 @@ class App extends Component {
   }
 
 
-  addImageToCanvas = (image) => {
-    const imageLinks = this.state.imageLinks.concat([newImage.imageLink]);
-    this.setState({imageLinks: imageLinks, presentClicked: false});
+  // Add to Canvas, and remove from Bank 
+  addImageToCanvas = (imageLink) => {
+    const newBankImages = this.state.bankImages.map((item) => {
+      if (imageLink !== item.imageLink){
+        return item.imageLink; 
+      }
+    })
+    const newCanvasImages = this.state.canvasImages.concat([imageLink]);
+    this.setState({bankImages: newBankImages, 
+      canvasImages: newCanvasImages, 
+      ...this.state}
+    );
   }
 
-  removeImageFromBank = (image) => {
-
+  // Remove from Canvas, add to Bank 
+  removeImageFromCanvas = (imageLink) => {
+    const newBankImages = this.state.bankImages.map((item) => {
+      if (imageLink != item.imageLink){
+        return item.imageLink; 
+      }
+    })
+    const newCanvasImages = this.state.canvasImages.concat([imageLink]);
+    this.setState({bankImages: newBankImages, 
+      canvasImages: newCanvasImages, 
+      ...this.state}
+    );
   }
 
   render() {
@@ -147,12 +167,14 @@ class App extends Component {
 
         {/* CANVAS SECTION BEGINS HERE */}=
         <Canvas 
+          canvsImages={this.state.canvasImages}
           addImageToCanvas={this.addImageToCanvas}
+          removeImageFromCanvas={this.removeImageFromCanvas}
         /> 
 
-        {/* Images SECTION BEGINS HERE */}
+        {/* IMAGE BANK SECTION BEGINS HERE */}
         <div className="picturesContainer" >
-          {infoCards.map((card, index) =>{
+          {this.state.bankImages.map((card, index) =>{
             const {imageLink} = card; 
             //TODO: Calculate offset, pass it in as defaultX / Y
             return (
@@ -160,6 +182,8 @@ class App extends Component {
                   defaultX={0}
                   defaultY={0}
                   key={index}
+                  addImageToCanvas={this.addImageToCanvas}
+                  removeImageFromCanvas={this.removeImageFromCanvas}
                 />
             )
           })}

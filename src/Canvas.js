@@ -5,6 +5,8 @@ import { DropTarget } from 'react-dnd';
 import Image from './Image';
 
 const target = {
+
+    // Move here, or move inside endDrag() handler 
     drop(props, monitor, component) {
       const coords = monitor.getSourceClientOffset();
       const item = monitor.getItem(); 

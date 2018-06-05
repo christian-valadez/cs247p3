@@ -14,16 +14,31 @@ const imageSource = {
         };
     },
 
-    //Component is Image that was just dropped 
+    //Component is Image that was being dropped 
     endDrag(props, monitor, component){
         const newImage = monitor.getDropResult();
+        const didDrop = monitor.didDrop(); 
+
+        console.log(`Did drop:${didDrop}`);
+        const {addImageToCanvas, removeImageFromCanvas } = props; 
+        // Dropped inside of Canvas 
         if (newImage){
+            console.log('dropped inside of canvas');
+            console.log(newImage);
             component.setState({
                 imageLink: newImage.imageLink,
                 x: newImage.x,
                 y: newImage.y
             })
+            //addImageToCanvas(newImage.imageLink);
         }
+        //Dropped outside of Canvas 
+        // We don't know which one was dropped. 
+        else { 
+            console.log('dropped outside of canvas');
+            //removeImageFromCanvas(newImage.imageLink);
+        }
+        
     }
 }
 
@@ -49,7 +64,6 @@ class Image extends Component {
 
     render(){
         const { connectDragSource, isDragging, imageLink, x, y } = this.props; 
-        
         if (isDragging){
             return null;
         }
@@ -57,16 +71,11 @@ class Image extends Component {
         
         return connectDragSource && connectDragSource( 
             <div style={{
-                opacity: isDragging ? 0.5 : 1, 
-                outlineColor: "#000000",
-                outlineWidth: "10", 
-                cursor: "move", 
-                width: "50px",
-                height: "50px",
-                margin: "50px",
-                position: 'relative',
+                margin: 10
             }}> 
                 <img src={imageLink}
+                    height={200}
+                    width={200}
                     />
             </div> 
         )
