@@ -17,23 +17,98 @@ import Canvas from './Canvas.js'
 
 import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
+import update from 'immutability-helper';
+
+import _ from 'lodash';
+
+const bankImages = infoCards.map(item => {
+  return item.imageLink; 
+})
+
 
 class App extends Component {
   constructor(){
-    super()
+    super();
+
+
+    //Default state for bank is the entire collection of cards
     this.state = {
+      canvasImages: [], 
+      bankImages: bankImages, 
       presentClicked: false,
-      imageLinks: []
     }
   }
   
-  presentClicked = (newImage) => {
-    this.setState({presentClicked: true, imageLinks: this.state.imageLinks});
+  presentClicked = () => {
+    this.setState({
+      canvasImages: this.state.canvasImages,
+      bankImages: this.state.bankImages,
+      presentClicked: true
+    });
   }
 
-  callbackForImage = (newImage) => {
-    const imageLinks = this.state.imageLinks.concat([newImage.imageLink]);
-    this.setState({imageLinks: imageLinks, presentClicked: false});
+
+  // Add to Canvas, and remove from Bank 
+  addImageToCanvas = (imageLink) => {
+    console.log("addingImageToCanvas");
+    console.log(imageLink);
+
+    const newBankImages = [];
+    this.state.bankImages.map((item) => {
+      if (imageLink !== item){
+        newBankImages.push(item); 
+      }
+    })
+    console.log(newBankImages);
+
+//    const newBankImages = _.remove(this.state.bankImages);
+    const newCanvasImages = this.state.canvasImages.concat([imageLink]);
+    
+    this.setState({bankImages: newBankImages, 
+      canvasImages: newCanvasImages, 
+      presentClicked: false}
+    );
+    console.log(this.state);
+  }
+
+  // Remove from Canvas, add to Bank 
+  removeImageFromCanvas = (imageLink) => {
+    console.log("removeImageFromCanvas");
+    console.log(imageLink);
+
+   
+    const newCanvasImages = [];
+    this.state.canvasImages.map((item) => {
+      if (imageLink != item){
+        newCanvasImages.push(item);
+      }
+    })
+    console.log(newCanvasImages);
+
+    const newBankImages = this.state.bankImages.concat([imageLink]);
+    this.setState({bankImages: newBankImages, 
+      canvasImages: newCanvasImages, 
+      presentClicked: false}
+    );
+    console.log(this.state);
+  }
+
+  renderImageBank() {
+    const _this = this; 
+    const images = this.state.bankImages.map((imageLink, index) =>{
+      console.log(imageLink);
+      //TODO: Calculate offset, pass it in as defaultX / Y
+      return (
+          <Image imageLink={imageLink}
+            defaultX={0}
+            defaultY={0}
+            key={imageLink}
+            addImageToCanvas={_this.addImageToCanvas}
+            removeImageFromCanvas={_this.removeImageFromCanvas}
+          />
+      )
+    })
+    return images; 
   }
 
   render() {
@@ -137,30 +212,23 @@ class App extends Component {
           </p>
         </div>
 
-        {/* PROTOTYPE SECTION BEGINS HERE */}=
+        {/* CANVAS SECTION BEGINS HERE */}=
         <Canvas 
-          callbackForImage={this.callbackForImage}
+          canvasImages={this.state.canvasImages}
+          addImageToCanvas={this.addImageToCanvas}
+          removeImageFromCanvas={this.removeImageFromCanvas}
         /> 
 
-        {/* Images SECTION BEGINS HERE */}
+        {/* IMAGE BANK SECTION BEGINS HERE */}
         <div className="picturesContainer" >
-          {infoCards.map((card) =>{
-            const {imageLink} = card; 
-            //TODO: Calculate offset, pass it in as defaultX / Y
-            return (
-                <Image imageLink={imageLink}
-                  defaultX={0}
-                  defaultY={0}
-                />
-            )
-          })}
+          {this.renderImageBank()}
         </div> 
+
 
         <button style={{alignSelf: "center"}} 
             onClick={this.presentClicked}>
              Present
         </button> 
-
         {/* CARDS SECTION BEGINS HERE */}
         {this.state.presentClicked && 
           <div className="cardsContainer">
@@ -182,13 +250,15 @@ class App extends Component {
             Let’s dive into your image selections.
           </p>
           {infoCards.map((card) => {
-            if (this.state.imageLinks.includes(card.imageLink)){
+            if (this.state.canvasImages.includes(card.imageLink)){
               return (
                 <InfoCard
+                key={card.imageLink}
                 {...card}
               />
               )
             }
+            return null;
           })}
         </div>
         }

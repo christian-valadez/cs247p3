@@ -7,23 +7,35 @@ import './App.css';
 
 const imageSource = { 
     // Returns an object to monitor.getItem()
-    beginDrag(props) {
+    beginDrag(props, monitor, component) {
+        console.log(`starting to drag:${props.imageLink}`); 
         return {
             //Identifier for image
             imageLink: props.imageLink 
         };
     },
 
-    //Component is Image that was just dropped 
+    //Component is Image that was being dropped 
     endDrag(props, monitor, component){
         const newImage = monitor.getDropResult();
-        if (newImage){
-            component.setState({
-                imageLink: newImage.imageLink,
-                x: newImage.x,
-                y: newImage.y
-            })
+        const didDrop = monitor.didDrop(); 
+        const imageLink = component.state.imageLink; 
+
+        console.log(typeof(addImageToCanvas));
+        // Dropped inside of Canvas 
+        if (didDrop){
+            console.log('dropped inside of canvas');
+            console.log(imageLink);
+            props.addImageToCanvas(imageLink);
         }
+        // Dropped outside of Canvas 
+        // We don't know which one was dropped. 
+        else { 
+            console.log('dropped outside of canvas');
+            console.log(imageLink);
+            props.removeImageFromCanvas(imageLink);
+        }
+        
     }
 }
 
@@ -49,24 +61,17 @@ class Image extends Component {
 
     render(){
         const { connectDragSource, isDragging, imageLink, x, y } = this.props; 
-        
         if (isDragging){
             return null;
         }
         
         return connectDragSource && connectDragSource( 
             <div style={{
-                opacity: isDragging ? 0.5 : 1, 
-                outlineColor: "#000000",
-                outlineWidth: "10", 
-
-                cursor: "move"
+                margin: 10
             }}> 
                 <img src={imageLink}
-                    alt="Image"
-                    className="scaledImage"
-                    width="100px"
-                    heigth="100px"
+                    height={200}
+                    width={200}
                     />
             </div> 
         )

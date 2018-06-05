@@ -53,9 +53,9 @@ body {
   margin-right: 45px;
 }
 
-.scaledImage {
-  width: 100px;
-  height: 200px;
+.scaledImageCard {
+  width: 250px;
+  height: 250px;
   margin-bottom: 30px;
 }
 
@@ -80,22 +80,21 @@ p {
   display: flex;
   flex-direction: row; 
   flex-wrap: wrap;
-  justify-content: space-evenly;
-  width: 800px; 
+  justify-content: center;
+  background-color: #F2F2F2;
+  width: 1200px; 
   height: 500px;
-  background-color: #F7F7F7;
 }
 
 .canvasContainer {
-  position: relative;
   display: flex;
-  flex-direction: row;
+  flex-direction: row; 
   flex-wrap: wrap;
-  justify-content: space-evenly;
-  background-color: #F3F3F3;
-  width: 800px;
+  justify-content: center;
+  background-color: #FFFFFF;
+  width: 1200px; 
   height: 500px;
-
+  border: solid; 
 }
 
 .cardsContainer {

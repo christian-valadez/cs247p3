@@ -7,8 +7,7 @@ const InfoCard = (props) => {
           <div className="leftAligned">
             <h4 className="imageTitle">{props.title}</h4>
             <img src={props.imageLink}
-               alt="Image"
-               className="scaledImage"/>
+               className="scaledImageCard"/>
           </div>
           <div className="rightAligned">
             <h5>How it affects women in general:</h5>
