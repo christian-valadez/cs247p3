@@ -41,7 +41,7 @@ class Canvas extends React.Component {
                 {/* YELLOW OVERLAY */}
                 {isOver && 
                         <div style={{
-                            position: 'absolute',
+                            position: 'relative',
                             top: 0,
                             left: 0,
                             right: 0, 
@@ -55,14 +55,14 @@ class Canvas extends React.Component {
                 {this.props.canvasImages.map((image, i) => {
                         return (
                         <div
+                            key={image}
                         style={{
                         }}> 
                         <Image imageLink={image}
-                            key={image}
+   
                             addImageToCanvas={this.props.addImageToCanvas}
                             removeImageFromCanvas={this.props.removeImageFromCanvas}
                           />
-                            />
                         
                         </div>
                         )
