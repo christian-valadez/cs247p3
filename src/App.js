@@ -21,13 +21,15 @@ import update from 'immutability-helper';
 
 import _ from 'lodash';
 
+const bankImages = infoCards.map(item => {
+  return item.imageLink; 
+})
+
+
 class App extends Component {
   constructor(){
     super();
 
-    const bankImages = infoCards.map(item => {
-      return item.imageLink; 
-    })
 
     //Default state for bank is the entire collection of cards
     this.state = {
@@ -37,8 +39,12 @@ class App extends Component {
     }
   }
   
-  presentClicked = (newImage) => {
-    this.setState({presentClicked: true, imageLinks: this.state.imageLinks});
+  presentClicked = () => {
+    this.setState({
+      canvasImages: this.state.canvasImages,
+      bankImages: this.state.bankImages,
+      presentClicked: true
+    });
   }
 
 
@@ -244,9 +250,10 @@ class App extends Component {
             Let’s dive into your image selections.
           </p>
           {infoCards.map((card) => {
-            if (this.state.imageLinks.includes(card.imageLink)){
+            if (this.state.canvasImages.includes(card.imageLink)){
               return (
                 <InfoCard
+                key={card.imageLink}
                 {...card}
               />
               )
