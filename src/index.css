@@ -54,8 +54,8 @@ body {
 }
 
 .scaledImageCard {
-  width: 100px;
-  height: 200px;
+  width: 250px;
+  height: 250px;
   margin-bottom: 30px;
 }
 
@@ -81,9 +81,9 @@ p {
   flex-direction: row; 
   flex-wrap: wrap;
   justify-content: center;
-  background-color: #F7F7F7;
-  width: 800px; 
-  height: 800px;
+  background-color: #F2F2F2;
+  width: 1200px; 
+  height: 500px;
 }
 
 .canvasContainer {
@@ -91,9 +91,10 @@ p {
   flex-direction: row; 
   flex-wrap: wrap;
   justify-content: center;
-  background-color: #F7F7F7;
-  width: 800px; 
-  height: 800px;
+  background-color: #FFFFFF;
+  width: 1200px; 
+  height: 500px;
+  border: solid; 
 }
 
 .cardsContainer {
