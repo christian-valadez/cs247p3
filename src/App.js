@@ -59,6 +59,7 @@ class App extends Component {
 
 
   // Add to Canvas, and remove from Bank 
+  // Only add if the image isn't already in there. 
   addImageToCanvas = (imageLink) => {
     console.log("addingImageToCanvas");
     console.log(imageLink);
@@ -71,13 +72,23 @@ class App extends Component {
     })
     console.log(newBankImages);
 
-//    const newBankImages = _.remove(this.state.bankImages);
-    const newCanvasImages = this.state.canvasImages.concat([imageLink]);
     
-    this.setState({bankImages: newBankImages, 
-      canvasImages: newCanvasImages, 
-      presentClicked: false}
-    );
+    let inArrayAlready = false;  
+    this.state.canvasImages.map(item => {
+      if (imageLink === item){
+        inArrayAlready = true; 
+      }
+    })
+
+
+    if (!inArrayAlready){
+      const newCanvasImages = this.state.canvasImages.concat([imageLink]);
+      this.setState({bankImages: newBankImages, 
+        canvasImages: newCanvasImages, 
+        presentClicked: false}
+      );
+    }
+
     console.log(this.state);
   }
 
@@ -95,11 +106,21 @@ class App extends Component {
     })
     console.log(newCanvasImages);
 
-    const newBankImages = this.state.bankImages.concat([imageLink]);
-    this.setState({bankImages: newBankImages, 
-      canvasImages: newCanvasImages, 
-      presentClicked: false}
-    );
+    let inArrayAlready = false;  
+    this.state.bankImages.map(item => {
+      if (imageLink === item){
+        inArrayAlready = true; 
+      }
+    })
+    
+    if (!inArrayAlready){
+      const newBankImages = this.state.bankImages.concat([imageLink]);
+      this.setState({bankImages: newBankImages, 
+        canvasImages: newCanvasImages, 
+        presentClicked: false}
+      );
+    }
+
     console.log(this.state);
   }
 
