@@ -25,6 +25,13 @@ const bankImages = infoCards.map(item => {
   return item.imageLink; 
 })
 
+const women  = {
+  red: require('./images/redWoman.png'),
+  blank: require('./images/blankWoman.png'),
+  green: require('./images/greenWoman.png')
+}
+
+let points = 0; 
 
 class App extends Component {
   constructor(){
@@ -40,7 +47,7 @@ class App extends Component {
   }
   
   presentClicked = () => {
-    let points = 0;
+    points = 0; 
     this.state.canvasImages.map((imageLink) => {
       infoCards.map((image) => {
         if (imageLink == image.imageLink){
@@ -48,8 +55,6 @@ class App extends Component {
         }
       })
     })
-    console.log(`points:${points}`);
-
     this.setState({
       canvasImages: this.state.canvasImages,
       bankImages: this.state.bankImages,
@@ -139,6 +144,40 @@ class App extends Component {
       )
     })
     return images; 
+  }
+
+  renderWomen() {
+    let womenArr = [];
+    
+    //Render lost women 
+    for (let i = 0; i > points; i--){
+      const keyIndex = womenArr.length;
+      womenArr.push(
+        <div className="women" key={keyIndex}>
+          <img src={women.red} height="70px" width="60px" />
+        </div>);
+    }
+
+    //Render gained women
+    for (let i = 0; i < points; i++){
+      const keyIndex = womenArr.length;
+      womenArr.push(
+        <div className="women" key={keyIndex}> 
+          <img src={women.green} height="70px" width="60px" />
+        </div> 
+      )
+    }
+    
+    //Render the rest of the women 
+    for (let i = 0; i < ( (points < 0) ? (10 + points) : 10); i++){
+      const keyIndex = womenArr.length;
+      womenArr.push(
+        <div className="women" key={keyIndex}>
+          <img src={women.blank} height="70px" width="60px" />
+        </div>);
+    }
+
+    return womenArr; 
   }
 
   render() {
@@ -276,9 +315,39 @@ class App extends Component {
             simply turn someone off to your whole company by what you put in
             front of them.
           </p>
+          
+          {/* WOMEN PNG SECTION BEGINS HERE */}
+          <p className="introText"> 
+            Here's what your workforce might look like: 
+          </p> 
+          <div className="womenContainer"> 
+            {this.renderWomen()}
+          </div> 
+          
+          {(points < 0) && 
+            <div> 
+              Oh no! It looks like you lost {Math.abs(points)} women in your workforce!
+            </div>
+          }
+
+          {(points > 0) && 
+            <div> 
+              Awesome! Your presentation was great, and you were able to successfully recruit {points} woman into your workforce! 
+            </div>
+          }
+
+          {(points == 0) && 
+            <div>
+              You didn't lose any of the women in your workforce, but you didn't recruit any, either!
+            </div>
+          }
+          
+
+          {/* CARDS BEGIN HERE */}
           <p className="introText">
             Let’s dive into your image selections.
           </p>
+
           {infoCards.map((card) => {
             if (this.state.canvasImages.includes(card.imageLink)){
               return (

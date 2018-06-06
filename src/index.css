@@ -102,3 +102,13 @@ p {
   flex-direction: column;
   align-items: center;
 }
+
+.womenContainer { 
+  display: flex; 
+  flex-direction: row; 
+  align-items: flex-start; 
+}
+
+.women { 
+  margin: 10; 
+}
