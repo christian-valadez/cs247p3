@@ -35,11 +35,21 @@ class App extends Component {
     this.state = {
       canvasImages: [], 
       bankImages: bankImages, 
-      presentClicked: false,
+      presentClicked: false
     }
   }
   
   presentClicked = () => {
+    let points = 0;
+    this.state.canvasImages.map((imageLink) => {
+      infoCards.map((image) => {
+        if (imageLink == image.imageLink){
+          points += image.point;
+        }
+      })
+    })
+    console.log(`points:${points}`);
+
     this.setState({
       canvasImages: this.state.canvasImages,
       bankImages: this.state.bankImages,
@@ -96,7 +106,6 @@ class App extends Component {
   renderImageBank() {
     const _this = this; 
     const images = this.state.bankImages.map((imageLink, index) =>{
-      console.log(imageLink);
       //TODO: Calculate offset, pass it in as defaultX / Y
       return (
           <Image imageLink={imageLink}
