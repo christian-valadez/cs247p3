@@ -28,10 +28,8 @@ body {
   background-color: #4CAF50; /* Green */
   border: none;
   color: white;
-  padding: 15px 32px;
+  padding: 10px 10px 10px 10px;
   text-align: center;
-  text-decoration: none;
-  display: inline-block;
   font-size: 16px;
   align-self: center;
   border-radius: 8px;

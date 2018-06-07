@@ -182,13 +182,13 @@ class App extends Component {
     }
     
     //Render the rest of the women 
-    for (let i = 0; i < ( (points < 0) ? (10 + points) : 10); i++){
-      const keyIndex = womenArr.length;
-      womenArr.push(
-        <div className="women" key={keyIndex}>
-          <img src={women.blank} height="70px" width="60px" />
-        </div>);
-    }
+    // for (let i = 0; i < ( (points < 0) ? (10 + points) : 10); i++){
+    //   const keyIndex = womenArr.length;
+    //   womenArr.push(
+    //     <div className="women" key={keyIndex}>
+    //       <img src={women.blank} height="70px" width="60px" />
+    //     </div>);
+    // }
 
     return womenArr; 
   }
@@ -216,7 +216,7 @@ class App extends Component {
         {/* INTRO SECTION BEGINS HERE */}
         <div className="introTextContainer">
           <a name="theProblem">
-            <h1 className="sectionTitle">The Problem</h1>
+            <h1 className="sectionTitle">Debugging The Tech Pipeline</h1>
           </a>
           <img src={top5TechJobsFigure}
                alt="Top 5 Tech Jobs For Men and Women"
@@ -235,7 +235,7 @@ class App extends Component {
           <p className="introText">
             While many factors contribute to the gender gap in the tech
             industry, one in particular may be surprising: <b>recruitment
-            presentations meant to attract talent to the field often have the adverse effect on women.</b>
+            presentations meant to attract talent to the field often have an adverse effect on women.</b>
           </p>
           <p className="introText">
             We invite you to try our interactive explainable below to discover
@@ -272,7 +272,7 @@ class App extends Component {
         /> 
 
           {/* IMAGE BANK SECTION BEGINS HERE */}
-          <div className="picturesContainer" >
+          <div className="picturesContainer" id="interactiveExplainable" >
             {this.renderImageBank()}
           </div>
 
@@ -285,12 +285,13 @@ class App extends Component {
         </button> 
 
         {/* CARDS SECTION BEGINS HERE */}
-        <section id="debrief">
+
         {this.state.presentClicked && 
           <div className="cardsContainer">
           <a name="debrief">
             <h1 className="sectionTitle">Debrief</h1>
           </a>
+
           <p className="introText">
             Phew, the presentation is over! Let’s see what the response was
             from the students.
@@ -315,9 +316,10 @@ class App extends Component {
           </p>
           
           {/* WOMEN PNG SECTION BEGINS HERE */}
-          <p className="introText"> 
-            Here's what your workforce might look like: 
-          </p> 
+          <div style={{"marginTop": "30px"}} />
+          <h3> 
+            Here's what your female applicant pool might look like: 
+          </h3> 
           <div style={{"marginBottom": "30px"}} />
           <div className="womenContainer"> 
             {this.renderWomen()}
@@ -325,21 +327,31 @@ class App extends Component {
           
           {(points < 0) && 
             <div className="introText"> 
-              Oh no! It looks like you lost {Math.abs(points)} women who will not be applying to your company.
+              Oh no! It looks like you lost {Math.abs(points)} women - they will not be applying to your company.
             </div>
           }
 
           {(points > 0) && 
             <div className="introText"> 
-              Awesome! Your presentation was great, and you were able to successfully recruit {points} woman into your workforce! 
+              Awesome! Your presentation was great, and you were able to successfully recruit {points} woman into your female applicant pool! 
             </div>
           }
 
           {(points == 0) && 
             <div className="introText">
-              You didn't lose any of the women in your workforce, but you didn't recruit any, either!
+              You didn't lose any of the women in your female applicant pool, but you didn't recruit any, either!
             </div>
           }
+          <div style={{"font-family": "Open Sans, sans-serif", "font-size": "12px"}}> 
+            *Each "good" image adds 1 point to your total. Each "bad" image subtracts 2 points 
+            from your total. The final number of points represents the women you lost / gained 
+            during your presentation. 
+          </div>
+          <div style={{"font-family": "Open Sans, sans-serif", "font-size": "10px"}}> 
+            The reason for this method of score calculation is that 
+            once a woman has been negatively impacted by an image, seeing a “good” image can 
+            partially—but likely not fully—make up for it.
+          </div>
           <div style={{"marginBottom": "30px"}} />
           {/* CARDS BEGIN HERE */}
           <p className="introText" style={{marginTop: "10px"}}>
@@ -415,7 +427,6 @@ class App extends Component {
           </p>
         </div>
         }
-        </section> 
       </div>
     );
   }
