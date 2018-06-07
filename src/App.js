@@ -327,13 +327,13 @@ class App extends Component {
           
           {(points < 0) && 
             <div className="introText"> 
-              Oh no! It looks like you lost {Math.abs(points)} women - they will not be applying to your company.
+              Oh no! It looks like you lost {Math.abs(points)} {points == -1 ? `woman` : `women`} - they will not be applying to your company.
             </div>
           }
 
           {(points > 0) && 
             <div className="introText"> 
-              Awesome! Your presentation was great, and you were able to successfully recruit {points} woman into your female applicant pool! 
+              Awesome! Your presentation was great, and you were able to successfully recruit {points} {points == 1 ? `woman` : `women`} into your female applicant pool! 
             </div>
           }
 
