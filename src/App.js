@@ -250,48 +250,45 @@ class App extends Component {
             <h1 className="sectionTitle">How It Works</h1>
           </a>
           <p className="introText">
-            Imagine you are a college recruiter for a Silicon Valley tech
+            Imagine you are a <b>college recruiter</b> for a Silicon Valley tech
             company. You’re giving a recruitment presentation to a bunch of
-            computer science majors. There are 100 people in the audience —
-            50 men, and 50 women.
+            computer science majors. 
           </p>
-          <p className="introText">
-            Students
-            use recruitment presentations to evaluate fit and attraction to a
-            company. Several&nbsp;
-            <a href="https://digitalcommons.ilr.cornell.edu/cgi/viewcontent.cgi?referer=https://scholar.google.com/&httpsredir=1&article=1063&context=cahrswp">
-              studies
-            </a>
-            &nbsp;have found a significant relationship between images used in
-            recruitment and intentions to apply to the organization.
-          </p>
+ 
           <p className="introText">
             Your job is to design a powerpoint presentation that you think will
             attract the most talent to your company. Specifically, you will be
-            choosing the images to include. Just drag
-            and drop which images you think will be the most effective
+            choosing the images to include. Just <b>drag
+            and drop</b> the images you think will be the most effective
             at recruiting the best group of engineers! Simple as that.
           </p>
         </div>
 
-        {/* CANVAS SECTION BEGINS HERE */}=
-        <Canvas 
-          canvasImages={this.state.canvasImages}
-          addImageToCanvas={this.addImageToCanvas}
-          removeImageFromCanvas={this.removeImageFromCanvas}
-        /> 
+        {/* CANVAS SECTION BEGINS HERE */}
+        <section style={{height: "100vh"}}> 
+          <Canvas 
+            canvasImages={this.state.canvasImages}
+            addImageToCanvas={this.addImageToCanvas}
+            removeImageFromCanvas={this.removeImageFromCanvas}
+          /> 
 
-        {/* IMAGE BANK SECTION BEGINS HERE */}
-        <div className="picturesContainer" >
-          {this.renderImageBank()}
-        </div> 
+          {/* IMAGE BANK SECTION BEGINS HERE */}
+          <div className="picturesContainer" >
+            {this.renderImageBank()}
+          </div>
+        </section>  
 
 
-        <button style={{alignSelf: "center"}} 
-            onClick={this.presentClicked}>
-             Present
+        <button className="button"
+            href="#debrief"
+            onClick={this.presentClicked}
+
+            >
+             Done!
         </button> 
+
         {/* CARDS SECTION BEGINS HERE */}
+        <section id="debrief">
         {this.state.presentClicked && 
           <div className="cardsContainer">
           <a name="debrief">
@@ -308,39 +305,51 @@ class App extends Component {
             simply turn someone off to your whole company by what you put in
             front of them.
           </p>
+
+          <p className="introText">
+            Students
+            use recruitment presentations to evaluate fit and attraction to a
+            company. Several&nbsp;
+            <a href="https://digitalcommons.ilr.cornell.edu/cgi/viewcontent.cgi?referer=https://scholar.google.com/&httpsredir=1&article=1063&context=cahrswp">
+              studies
+            </a>
+            &nbsp;have found a significant relationship between images used in
+            recruitment and intentions to apply to the organization.
+          </p>
           
           {/* WOMEN PNG SECTION BEGINS HERE */}
           <p className="introText"> 
             Here's what your workforce might look like: 
           </p> 
+          <div style={{"marginBottom": "30px"}} />
           <div className="womenContainer"> 
             {this.renderWomen()}
           </div> 
           
           {(points < 0) && 
-            <div> 
-              Oh no! It looks like you lost {Math.abs(points)} women from your workforce!
+            <div className="introText"> 
+              Oh no! It looks like you lost {Math.abs(points)} women who will not be applying to your company.
             </div>
           }
 
           {(points > 0) && 
-            <div> 
+            <div className="introText"> 
               Awesome! Your presentation was great, and you were able to successfully recruit {points} woman into your workforce! 
             </div>
           }
 
           {(points == 0) && 
-            <div>
+            <div className="introText">
               You didn't lose any of the women in your workforce, but you didn't recruit any, either!
             </div>
           }
-          
-
+          <div style={{"marginBottom": "30px"}} />
           {/* CARDS BEGIN HERE */}
-          <p className="introText">
+          <p className="introText" style={{marginTop: "10px"}}>
             Let’s dive into your image selections.
           </p>
-
+          
+          <div> 
           {infoCards.map((card) => {
             if (this.state.canvasImages.includes(card.imageLink)){
               return (
@@ -352,6 +361,8 @@ class App extends Component {
             }
             return null;
           })}
+          </div> 
+
           <h1 className="sectionTitle">The Big Picture</h1>
           <p className="introText">
             For recruiters, it is important to actively keep implicit bias in mind when putting together a recruitment presentation. Without knowing what to look for, subtle bias in imagery and language can unintentionally push certain groups away from applying and misrepresent your company values.
@@ -373,6 +384,7 @@ class App extends Component {
           </p>
         </div>
         }
+        </section> 
       </div>
     );
   }

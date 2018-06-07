@@ -24,6 +24,20 @@ body {
   margin-bottom: 15px;
 }
 
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  align-self: center;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
 .figure {
   margin-bottom: 20px;
 }
@@ -45,22 +59,29 @@ body {
   display: flex;
   align-items: center;
   box-shadow: 2px 1.5px #999999;
-  border: solid #999999 1px;
   width: 700px;
   height: 600px;
   margin: 50px;
+}
+
+.cardsSection {
+  display: flex; 
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center; 
+  justify-content: center;
 }
 
 .leftAligned {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-left: 45px;
+  margin-left: 20px;
 }
 
 .rightAligned {
-  margin-left: 70px;
-  margin-right: 45px;
+  margin-left: 50px;
+  margin-right: 50px;
 }
 
 .scaledImageCard {
@@ -117,14 +138,17 @@ p {
   display: flex;
   flex-direction: column;
   align-items: center;
+  scroll-behavior: smooth;
 }
 
 .womenContainer { 
   display: flex; 
   flex-direction: row; 
   align-items: flex-start; 
+  margin-top: 10px;
 }
 
 .women { 
-  margin: 10; 
+  margin-left: 5px; 
+  margin-right: 5px;
 }

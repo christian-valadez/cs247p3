@@ -31,7 +31,8 @@
     point: 1, 
     title: "Work-Life Balance",
     imageLink: require("./images/card4.png"),
-    affectsWomen: "Work-life concerns are becoming increasingly important to both women AND men. That being said, women are still asks more frequently than men are to explain how they balance work and family responsibilities. Evidence suggests that employers significantly underestimate the importance of flexible arrangements for employee retention and job satisfaction.",
+    affectsWomen: "Work-life concerns are becoming increasingly important to both women AND men. That being said, women are still asked more frequently than men are \
+    to explain how they balance work and family responsibilities. Evidence suggests that employers significantly underestimate the importance of flexible arrangements for employee retention and job satisfaction.",
     quote: "\"Men and women are quite similar in the value they place on being a parent and having a successful marriage, with both ranking these as significantly more important than having a high-paying career\” -\”Women in Tech: The Facts\", NCWIT (Pew Research Center, 2012)."
   }
   
