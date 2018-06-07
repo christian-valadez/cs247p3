@@ -1,5 +1,6 @@
 
   const card1 = {
+    point: 1, 
     title: "Diverse Workspace",
     imageLink: require("./images/card1.png"),
     affectsWomen: "Showing gender diversity in recruitment lets women know that there are people at your company who look like them, decreasing the likelihood of stereotype threat and tokenism. Stereotype threat is the fear that if one’s actions will confirm a negative stereotype about a group they are a part of, and tokenism is when a member of a minority group is singled out to represent or relate to that group (\“Women in Tech: The Facts\”, NCWIT 2016).",
@@ -7,6 +8,7 @@
   }
   
   const card2 = {
+    point: 1,
     title: "Collaboration",
     imageLink: require("./images/card2.png"),
     affectsWomen: "According to an article by Shanna Tellerman, CEO and Founder of Modsy, women often prioritize a collaborative environment while searching for jobs. Featuring collaboration, rather than just computers and machinery, sends a positive message of teamwork.",
@@ -14,6 +16,7 @@
   }
   
   const card3 = {
+    point: 1, 
     title: "Opportunities for Growth",
     imageLink: require("./images/card3.png"),
     affectsWomen: "According to Catalyst’s current report on Women CEOs of the S&P 500, women make up only 4.6% of CEO’s in these companies. Of these 23 women, only 2 are in tech-related industries (Oracle and IBM). Another study shows that in Silicon Valley, the odds of being in a leadership position was 2.7 times greater for men than for women (Simard et al., 2008). Even further, studies show that the most significant factor that leads to women leaving the tech industry is lack of pay and promotion opportunities. Women need to be shown that there are opportunities for growth.",
@@ -21,6 +24,7 @@
   }
   
   const card4 = {
+    point: 1, 
     title: "Work-Life Balance",
     imageLink: require("./images/card4.png"),
     affectsWomen: "Work-life concerns are becoming increasingly important to both women AND men. That being said, women are still asks more frequently than men are to explain how they balance work and family responsibilities. Evidence suggests that employers significantly underestimate the importance of flexible arrangements for employee retention and job satisfaction.",
@@ -28,6 +32,7 @@
   }
   
   const card5 = {
+    point: 1, 
     title: "Inclusive Imagery and Language",
     imageLink: require("./images/card5.png"),
     affectsWomen: "Explicitly showing commitment to diversity shows underrepresented groups that they are valued (CareerArc 2015). While this doesn’t have to be done through imagery, describing diversity as an advantage to the company helps to dispel the myth of meritocracy in tech and communicate fair, but not preferential, treatment.",
@@ -35,6 +40,7 @@
   }
   
   const card6 = {
+    point: -2, 
     title: "All-Male Coworkers",
     imageLink: require("./images/card6.png"),
     affectsWomen: "The recruitment process can communicate unintended, subtle bias without even knowing it. In the Annual Review of Organizational Psychology and Organizational Behavior, it is shown that recruiters/interviewers can easily trigger stereotype threat—or the fear that one’s actions will confirm a negative stereotype—for women through showing an all-male work environment. Additionally, women may not feel like they are a good culture fit for the company if they are shown all males, which can lead them to go elsewhere (Walton et al., 2015).",
@@ -42,6 +48,7 @@
   }
   
   const card7 = {
+    point: -2, 
     title: "Masculine Office Culture",
     imageLink: require("./images/card7.png"),
     affectsWomen: "Beer pong and other stereotypically \“fratty\” references incorporated into office culture can contribute to alienating women (any many men, for that matter). Workplace norms that embody the “brogrammer” culture described in articles by Wired and the NYT has been shown to contribute to women’s perception of the tech industry as \“bro-ey\” and \“testosterone-fueled\” (Sandgren, Kennedy School Review).",
@@ -49,6 +56,7 @@
   }
   
   const card8 = {
+    point: -2, 
     title: "\"Geeky\" Office Space",
     imageLink: require("./images/card8.png"),
     affectsWomen: "The actual, physical office space provides subtle hints about who \“belongs there.\” A workspace communicates culture and community norms, so it is best to avoid depicting an environment that might make women feel excluded or unwelcome (Hattenhauer, 1984). Data suggest that tech offices often convey a stereotypically masculine culture and related expectations. For example, in an experiment done with college students, sci-fi posters, stacked soda cans, video games, etc. made young men and women feel alienated from a company if they didn’t resonate with these \“geeky\” characteristics (Cheryan et al., 2011; Cheryan et al., 2009).",
@@ -56,6 +64,7 @@
   }
   
   const card9 = {
+    point: -2, 
     title: "Extreme Technicality",
     imageLink: require("./images/card9.png"),
     affectsWomen: "Technical complexity may be part of the job as a software engineer, but it can be seen as a method of vetting or intimidating the audience. While extreme technicality can turn both men and women away, the effects in recruitment are pronounced with female applicants due to confidence in their technical skill due to stereotypes (Correll, 2001, 2004; Margolis and Fisher, 2002).",
@@ -63,6 +72,7 @@
   }
   
   const card10 = {
+    point: -2, 
     title: "Word Choice",
     imageLink: require("./images/card10.png"),
     affectsWomen: "Phrases that brag or exude confidence such as \“best of the best,\” \“ninja,\” \“rock star,\” \“world-class,\” or \“unparalleled\” can inadvertently turn certain people away in a recruitment presentation. These words can deter people who have been raised or socialized to downplay their expertise; this is the case for many women, even if they are highly qualified.",
