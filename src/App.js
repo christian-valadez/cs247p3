@@ -265,7 +265,7 @@ class App extends Component {
         </div>
 
         {/* CANVAS SECTION BEGINS HERE */}
-        <section style={{height: "100vh"}}> 
+
           <Canvas 
             canvasImages={this.state.canvasImages}
             addImageToCanvas={this.addImageToCanvas}
@@ -276,13 +276,12 @@ class App extends Component {
           <div className="picturesContainer" >
             {this.renderImageBank()}
           </div>
-        </section>  
+
 
 
         <button className="button"
             href="#debrief"
             onClick={this.presentClicked}
-
             >
              Done!
         </button> 
