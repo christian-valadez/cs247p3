@@ -347,7 +347,7 @@ class App extends Component {
             from your total. The final number of points represents the women you lost / gained 
             during your presentation. 
           </div>
-          <div style={{"font-family": "Open Sans, sans-serif", "font-size": "10px"}}> 
+          <div style={{"font-family": "Open Sans, sans-serif", "font-size": "12px"}}> 
             The reason for this method of score calculation is that 
             once a woman has been negatively impacted by an image, seeing a “good” image can 
             partially—but likely not fully—make up for it.
