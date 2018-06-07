@@ -326,7 +326,7 @@ class App extends Component {
           
           {(points < 0) && 
             <div> 
-              Oh no! It looks like you lost {Math.abs(points)} women in your workforce!
+              Oh no! It looks like you lost {Math.abs(points)} women from your workforce!
             </div>
           }
 
