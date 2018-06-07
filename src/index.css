@@ -32,6 +32,13 @@ body {
   margin-right: 300px;
 }
 
+button {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  height: 40px;
+  width: 80px;
+}
+
 .cardsContainer {
   display: flex;
   flex-direction: column;
