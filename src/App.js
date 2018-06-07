@@ -147,32 +147,18 @@ class App extends Component {
               National Center for Women & Information Technology
               (NCWIT)’s 2016 update
             </a>
-            &nbsp;on the status of women in tech, and originally found by&nbsp;
-            <a href="http://media.dice.com/report/spotlight-on-women-in-tech-3/">
-              Dice’s 2012-2013 annual salary survey
-            </a>
-            &nbsp;(Ashcraft, McClain, and Eger 14). These positions contrast
-            starkly with the more technical positions that comprise the top 5
-            tech occupations for men. So why the difference?
+            &nbsp;on the status of women in tech. These positions contrast
+            starkly with men. So why the difference?
           </p>
           <p className="introText">
             While many factors contribute to the gender gap in the tech
-            industry, one in particular may be surprising: recruitment
-            presentations meant to attract talent to the field and encourage
-            people to apply often unintentionally repel and discourage
-            prospective women applicants. The Clamen Institute for Gender
-            Research at Stanford University studied this inadvertent alienation
-            of women in depth during&nbsp;
-            <a href="http://journals.sagepub.com/doi/pdf/10.1177/0306312718756766">
-              one study
-            </a>&nbsp;for which they observed 89 distinct recruitment sessions
-            (Wynn and Correll 2018).
+            industry, one in particular may be surprising: <b>recruitment
+            presentations meant to attract talent to the field often have the adverse effect on women.</b>
           </p>
           <p className="introText">
             We invite you to try our interactive explainable below to discover
-            for yourself what the Clamen Institute and other studies found,
-            and to learn how information presented in recruitment presentations
-            can end up conveying unintended, yet impactful messages to women.
+            for yourself how information presented in recruitment presentations
+            can end up having unintended consequences.
           </p>
         </div>
 
@@ -188,25 +174,19 @@ class App extends Component {
             50 men, and 50 women.
           </p>
           <p className="introText">
-            Several&nbsp;
+            Students
+            use recruitment presentations to evaluate fit and attraction to a
+            company. Several&nbsp;
             <a href="https://digitalcommons.ilr.cornell.edu/cgi/viewcontent.cgi?referer=https://scholar.google.com/&httpsredir=1&article=1063&context=cahrswp">
               studies
             </a>
             &nbsp;have found a significant relationship between images used in
-            recruitment and intentions to apply to the organization. Students
-            use recruitment presentations to evaluate fit and attraction to a
-            company.&nbsp;
-            <a href="http://psycnet.apa.org/fulltext/2003-01068-011.pdf">
-              Research
-            </a>
-            &nbsp;indicates that images also influence peoples’ expectancies for
-            receiving a job offer, which contributes to their likelihood of
-            applying.
+            recruitment and intentions to apply to the organization.
           </p>
           <p className="introText">
             Your job is to design a powerpoint presentation that you think will
             attract the most talent to your company. Specifically, you will be
-            choosing the images to include — in no particular order. Just drag
+            choosing the images to include. Just drag
             and drop which images you think will be the most effective
             at recruiting the best group of engineers! Simple as that.
           </p>
@@ -260,6 +240,25 @@ class App extends Component {
             }
             return null;
           })}
+          <h1 className="sectionTitle">The Big Picture</h1>
+          <p className="introText">
+            For recruiters, it is important to actively keep implicit bias in mind when putting together a recruitment presentation. Without knowing what to look for, subtle bias in imagery and language can unintentionally push certain groups away from applying and misrepresent your company values.
+          </p>
+          <p className="introText">
+            This mindfulness takes both research and empathy — it’s too easy to play into societal biases, especially when a quick Google search for “programmer” results in almost entirely photos and cartoons of men coding in the dark. Seriously, go ahead and Google it.
+          </p>
+          <p className="question">
+            <i>So why is it so important that we work to attract women, specifically?</i>
+          </p>
+          <p className="introText">
+            By ignoring red flags and implicit bias in recruitment, the pipeline of women (which is already small from lack of encouragement at a young age to go into STEM majors) gets even smaller.
+          </p>
+          <p className="question">
+            <i>Why do we care?</i>
+          </p>
+          <p className="introText">
+            It turns out that without a diverse group of employees, your company could be missing out on highly qualified candidates, important innovation contributions, and increased productivity and therefore profit. There is a myriad of research demonstrating better business outcomes when underrepresented groups (like women) are valued and lead others.
+          </p>
         </div>
         }
       </div>

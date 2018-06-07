@@ -7,6 +7,7 @@ body {
 .sectionTitle {
   margin-top: 70px;
   margin-bottom: 20px;
+  font-size: 50px;
 }
 
 .introTextContainer {
@@ -15,14 +16,20 @@ body {
   align-items: center;
 }
 
+.question {
+  font-size: 22px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
 .figure {
   margin-bottom: 20px;
 }
 
 .introText {
   font-size: 18px;
-  margin-left: 40px;
-  margin-right: 40px;
+  margin-left: 300px;
+  margin-right: 300px;
 }
 
 .cardsContainer {
