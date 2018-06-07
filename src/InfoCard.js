@@ -17,6 +17,8 @@ const InfoCard = (props) => {
             <p>{props.affectsWomen}</p>
             <h5>Personal Quotes:</h5>
             <p>{props.quote}</p>
+            <h5>Citations:</h5>
+              <a href={props.citation}>{props.citation}</a> 
           </div>
         </div>
     )
