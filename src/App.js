@@ -274,7 +274,7 @@ class App extends Component {
           </p>
         </div>
 
-        {/* CANVAS SECTION BEGINS HERE */}=
+        {/* CANVAS SECTION BEGINS HERE */}
         <Canvas 
           canvasImages={this.state.canvasImages}
           addImageToCanvas={this.addImageToCanvas}
@@ -354,7 +354,7 @@ class App extends Component {
           })}
           <h1 className="sectionTitle">The Big Picture</h1>
           <p className="introText">
-            For recruiters, it is important to actively keep implicit bias in mind when putting together a recruitment presentation. Without knowing what to look for, subtle bias in imagery and language can unintentionally push certain groups away from applying and misrepresent your company values.
+            For recruiters, it is important to actively keep implicit bias in mind when putting together a recruitment presentation. Without knowing what to look for, <b>subtle bias in imagery and language can unintentionally push certain groups away from applying and misrepresent your company values.</b>
           </p>
           <p className="introText">
             This mindfulness takes both research and empathy — it’s too easy to play into societal biases, especially when a quick Google search for “programmer” results in almost entirely photos and cartoons of men coding in the dark. Seriously, go ahead and Google it.
@@ -378,7 +378,7 @@ class App extends Component {
             The tech world, as it lives now, lacks diversity. From 1991 to 2014, the percentage of women with computing jobs went down from 36% to 26%. That number has slowly increased over the last six years by 2%. But when you take racial diversity into account the numbers are even more dismal, with black women holding only 3% of women’s positions in computing, and latinas holding only 1%.
           </p>
           <p className="introText">
-            And if you think recruiting college grads is the end of the pipeline shrinkage, we wish it were that simple. Women are leaving their jobs in tech at alarming rates, reporting unsupportive work environments and lack of pay and promotion opportunities. Women are leaving tech for other industries twice as quickly as men are.
+            And if you think recruiting college grads is the end of the pipeline shrinkage, we wish it were that simple. <b>Women are leaving their jobs in tech at alarming rates, reporting unsupportive work environments and lack of pay and promotion opportunities. Women are leaving tech for other industries twice as quickly as men are.</b>
           </p>
           <p className="introText">
             So it’s not just graduating computer science majors who are abandoning their formal training, it’s also industry professionals.
