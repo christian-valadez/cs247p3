@@ -382,6 +382,40 @@ class App extends Component {
           <p className="introText">
             It turns out that without a diverse group of employees, your company could be missing out on highly qualified candidates, important innovation contributions, and increased productivity and therefore profit. There is a myriad of research demonstrating better business outcomes when underrepresented groups (like women) are valued and lead others.
           </p>
+          <p className="introText">
+            Well, here’s the bad news.
+          </p>
+          <p className="introText">
+            The tech world, as it lives now, lacks diversity. From 1991 to 2014, the percentage of women with computing jobs went down from 36% to 26%. That number has slowly increased over the last six years by 2%. But when you take racial diversity into account the numbers are even more dismal, with black women holding only 3% of women’s positions in computing, and latinas holding only 1%.
+          </p>
+          <p className="introText">
+            And if you think recruiting college grads is the end of the pipeline shrinkage, we wish it were that simple. Women are leaving their jobs in tech at alarming rates, reporting unsupportive work environments and lack of pay and promotion opportunities. Women are leaving tech for other industries twice as quickly as men are.
+          </p>
+          <p className="introText">
+            So it’s not just graduating computer science majors who are abandoning their formal training, it’s also industry professionals.
+          </p>
+          <p className="question">
+            <i>And where are they going?</i>
+          </p>
+          <p className="introText">
+            According to data collected by NCWIT in 2016, only about 20% of the women who leave their jobs in computing take time out of the workforce, an alarmingly low percentage if you had thought that women were leaving work to start families.
+          </p>
+          <p className="introText">
+            In fact, an overwhelming majority of these women who leave their tech careers stay in the workforce, about 80%.
+          </p>
+          <p className="introText">
+            The myth that the “best” naturally rise to the top continues to plague companies today, and in turn they may be unknowingly missing out on highly qualified employees. It’s imperative to recognize that people don’t start off on equal ground.
+          </p>
+          <p className="introText">
+            So yeah, recruitment is just one part of a much bigger problem in the tech industry. But the good news is that there is <i>so much</i> research out there that we know how to fix (or at least help) the gender gap in tech. It’s not going to be easy, it’s going to take a lot of time, and recruitment is just one part of the prong. But with the right mindset — one that embraces accountability and improvement — it’s entirely possible to close that gap!
+          </p>
+          <p className="introText">
+            <i>For further background and research-based strategies for closing the gender gap, see</i> &nbsp;
+            <a href="https://www.ncwit.org/sites/default/files/resources/ncwit_women-in-it_2016-full-report_final-web06012016.pdf">
+              <i>NCWIT's Women in Tech: The Facts.</i>
+            </a>
+            &nbsp;
+          </p>
         </div>
         }
         </section> 
