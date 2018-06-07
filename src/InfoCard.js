@@ -2,8 +2,11 @@ import React from 'react';
 
 
 const InfoCard = (props) => {
+    const borderColor  = props.point > 0 ? "#2DC600" : "#C63A36"; 
     return(
-        <div className="imageCard">
+        <div className="imageCard" style={{
+          border: `solid 2px ${borderColor}`,
+        }}>
           <div className="leftAligned">
             <h4 className="imageTitle">{props.title}</h4>
             <img src={props.imageLink}
