@@ -1,5 +1,6 @@
 
   const card1 = {
+    citation: "https://www.ncwit.org/sites/default/files/resources/womenintech_facts_fullreport_05132016.pdf",
     point: 1, 
     title: "Diverse Workspace",
     imageLink: require("./images/card1.png"),
@@ -8,6 +9,7 @@
   }
   
   const card2 = {
+    citation: "https://www.entrepreneur.com/article/308976",
     point: 1,
     title: "Collaboration",
     imageLink: require("./images/card2.png"),
@@ -16,6 +18,7 @@
   }
   
   const card3 = {
+    citation: "http://www.catalyst.org/knowledge/women-ceos-sp-500",
     point: 1, 
     title: "Opportunities for Growth",
     imageLink: require("./images/card3.png"),
@@ -24,6 +27,7 @@
   }
   
   const card4 = {
+    citation: "http://attcnetwork.org/wfs/documents/spherion_staffing_services_emerging_workforce_survey_executive_summary.pdf",
     point: 1, 
     title: "Work-Life Balance",
     imageLink: require("./images/card4.png"),
@@ -32,6 +36,7 @@
   }
   
   const card5 = {
+    citation: "https://careerarcgroup-com.s3.amazonaws.com/resources/careerarc-2015-workplace-flexibility-study-dl.pdf",
     point: 1, 
     title: "Inclusive Imagery and Language",
     imageLink: require("./images/card5.png"),
@@ -40,6 +45,7 @@
   }
   
   const card6 = {
+    citation: "https://medium.com/@kawomersley/documenting-decisions-in-a-remote-team-b53cb615ae73",
     point: -2, 
     title: "All-Male Coworkers",
     imageLink: require("./images/card6.png"),
@@ -48,6 +54,7 @@
   }
   
   const card7 = {
+    citation: "https://gizmodo.com/palantirs-party-culture-beer-pong-office-pranks-and-1782048551",
     point: -2, 
     title: "Masculine Office Culture",
     imageLink: require("./images/card7.png"),
@@ -56,6 +63,7 @@
   }
   
   const card8 = {
+    citation: "https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=2&cad=rja&uact=8&ved=0ahUKEwiBhK-Y4sDbAhVpCjQIHV8BBnAQFgguMAE&url=https%3A%2F%2Fqz.com%2F823162%2Fa-new-study-shows-how-star-trek-jokes-and-geek-culture-make-women-feel-unwelcome-in-computer-science%2F&usg=AOvVaw3RDaOFSsC0cGn09G6HUYP5",
     point: -2, 
     title: "\"Geeky\" Office Space",
     imageLink: require("./images/card8.png"),
@@ -64,6 +72,7 @@
   }
   
   const card9 = {
+    citation: "http://journals.sagepub.com/doi/pdf/10.1177/0306312718756766",
     point: -2, 
     title: "Extreme Technicality",
     imageLink: require("./images/card9.png"),
@@ -72,6 +81,7 @@
   }
   
   const card10 = {
+    citation: "https://www.huffingtonpost.com/2015/06/02/textio-unitive-bias-software_n_7493624.html",
     point: -2, 
     title: "Word Choice",
     imageLink: require("./images/card10.png"),

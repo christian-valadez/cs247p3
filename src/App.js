@@ -21,6 +21,19 @@ import update from 'immutability-helper';
 
 import _ from 'lodash';
 
+function shuffle(a) {
+  var j, x, i;
+  for (i = a.length - 1; i > 0; i--) {
+      j = Math.floor(Math.random() * (i + 1));
+      x = a[i];
+      a[i] = a[j];
+      a[j] = x;
+  }
+  return a;
+}
+
+shuffle(infoCards);
+
 const bankImages = infoCards.map(item => {
   return item.imageLink; 
 })
@@ -306,7 +319,7 @@ class App extends Component {
           
           {(points < 0) && 
             <div> 
-              Oh no! It looks like you lost {Math.abs(points)} women in your workforce!
+              Oh no! It looks like you lost {Math.abs(points)} women from your workforce!
             </div>
           }
 
